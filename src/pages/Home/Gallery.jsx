@@ -1,6 +1,9 @@
 import React from "react";
+import useTheme from "../../hook/useTheme";
 
 const Gallery = () => {
+  const theme = useTheme();
+
   const images = [
     "https://thangjamagro.com/wp-content/uploads/2023/01/world-environtmentd-day-tree-plantation.jpg",
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRaxS9s4nFBjmVfqe2watvF7dX-dXHwLSmmA&s",
@@ -13,7 +16,11 @@ const Gallery = () => {
   return (
     <section className="py-20 px-4 ">
       <div className="max-w-7xl mx-auto text-center">
-        <h2 className="text-4xl font-bold text-green-800 mb-12">
+        <h2
+          className={`text-4xl font-bold ${
+            theme == "dark" ? "text-white" : "text-green-800"
+          } mb-12`}
+        >
           Event Gallery
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">

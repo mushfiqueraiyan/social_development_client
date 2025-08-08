@@ -4,8 +4,11 @@ import { CalendarDays, MapPin, Tag } from "lucide-react";
 import React from "react";
 import { Link } from "react-router";
 import { motion } from "motion/react";
+import useTheme from "../../hook/useTheme";
 
 const Events = () => {
+  const theme = useTheme();
+
   const { data: upcomingEvent = [], isPending } = useQuery({
     queryKey: ["event"],
     queryFn: async () => {
@@ -26,7 +29,11 @@ const Events = () => {
 
   return (
     <div>
-      <h2 className="text-4xl font-bold text-center text-green-800 mb-12">
+      <h2
+        className={`text-4xl font-bold text-center ${
+          theme == "dark" ? "text-white" : "text-green-800"
+        } mb-12`}
+      >
         Upcoming Events
       </h2>
 

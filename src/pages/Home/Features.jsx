@@ -1,13 +1,20 @@
 import React from "react";
 import { CalendarPlus, UsersRound, BarChart3 } from "lucide-react";
 import { motion } from "motion/react";
+import useTheme from "../../hook/useTheme";
 
 const Features = () => {
+  const theme = useTheme();
+
   return (
     <div>
       <section className="py-20  px-4 md:px-12">
         <div className="max-w-7xl mx-auto text-center">
-          <h2 className="text-4xl md:text-4xl font-bold text-green-800 mb-12">
+          <h2
+            className={`text-4xl md:text-4xl font-bold ${
+              theme == "dark" ? "text-white" : "text-green-800"
+            } mb-12`}
+          >
             Make a Real Difference in Your Community
           </h2>
 
