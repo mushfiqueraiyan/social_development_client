@@ -4,6 +4,7 @@ import Features from "./Features";
 import Gallery from "./Gallery";
 import Newsletter from "./Newsletter";
 import { AuthContext } from "../../context/AuthProvider";
+import Events from "./Events";
 
 const Home = () => {
   const { loader } = use(AuthContext);
@@ -20,6 +21,7 @@ const Home = () => {
     <div>
       <Banner />
       <Features />
+      <Events />
       <Gallery />
       <Newsletter />
     </div>

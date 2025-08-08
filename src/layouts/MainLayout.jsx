@@ -14,7 +14,9 @@ const MainLayout = () => {
 
   return (
     <div>
-      <Navbar />
+      <div className="sticky top-0 z-20 bg-white">
+        <Navbar />
+      </div>
       <Outlet />
       <Footer />
     </div>

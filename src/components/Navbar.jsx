@@ -1,4 +1,4 @@
-import React, { use, useState } from "react";
+import React, { use, useEffect, useState } from "react";
 import { Link, NavLink } from "react-router";
 import { AuthContext } from "../context/AuthProvider";
 import { Tooltip } from "react-tooltip";
@@ -6,6 +6,7 @@ import { toast } from "react-toastify";
 
 const Navbar = () => {
   const { user, logout } = use(AuthContext);
+  const [scroll, setScroll] = useState(false);
 
   const handleLogout = () => {
     try {
@@ -16,9 +17,21 @@ const Navbar = () => {
     }
   };
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setScroll(window.scrollY > 0);
+      window.addEventListener("scroll", handleScroll);
+      return () => window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
     <div>
-      <div className="navbar items-center bg-base-100 shadow-sm">
+      <div
+        className={` flex items-center px-5 py-2  shadow-sm  z-10 ${
+          scroll ? "bg-green-900 text-white " : ""
+        }`}
+      >
         <div className="flex-1">
           <Link
             to={"/"}
