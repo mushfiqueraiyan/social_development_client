@@ -2,7 +2,7 @@
 
 Event management platform where users can create, join social service events in their local area.
 
-Live Link: https://save-tree-org.netlify.app/
+Live Link: https://social-development-org.netlify.app/
 
 # Key Features:
 
