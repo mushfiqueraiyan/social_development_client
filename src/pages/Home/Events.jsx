@@ -21,7 +21,9 @@ const Events = () => {
 
   if (isPending) {
     return (
-      <span className="loading loading-bars loading-xl text-green-600"></span>
+      <div className="fixed inset-0 z-50 flex items-center justify-center bg-white bg-opacity-50">
+        <span className="loading loading-bars loading-xl text-green-600"></span>
+      </div>
     );
   }
 

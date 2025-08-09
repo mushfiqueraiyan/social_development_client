@@ -3,13 +3,14 @@ import { Link, useLoaderData } from "react-router";
 import { CalendarDays, MapPin, Search, Tag } from "lucide-react";
 import { AuthContext } from "../../context/AuthProvider";
 import { motion } from "motion/react";
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
 
 const Upcoming = () => {
   //const event = useLoaderData();
   const [search, setSearch] = useState("");
-  const [event, setEvent] = useState([]);
+
   const [type, setType] = useState("");
-  const [allEventTypes, setAllEventTypes] = useState([]);
 
   //console.log(search);
 
@@ -23,30 +24,35 @@ const Upcoming = () => {
     );
   }
 
-  const fetchEvents = async () => {
-    let url = "https://save-tree-org-server.vercel.app/events?";
-    if (search) url += `search=${search}`;
-    if (type) url += `type=${type}`;
+  const { data: event = [], isPending } = useQuery({
+    queryKey: ["events", search, type],
+    queryFn: async () => {
+      let url = "https://save-tree-org-server.vercel.app/events";
+      if (search) url += `search=${search}&`;
+      if (type) url += `type=${type}`;
+      const res = await axios.get(url);
+      return res.data; // axios gives data directly
+    },
+  });
 
-    const res = await fetch(url);
-    const data = await res.json();
-    setEvent(data);
-
-    try {
-      const allRes = await fetch(
+  // Fetch all event types
+  const { data: allEventTypes = [], isPending: typPending } = useQuery({
+    queryKey: ["eventTypes"],
+    queryFn: async () => {
+      const res = await axios.get(
         "https://save-tree-org-server.vercel.app/events"
       );
-      const allData = await allRes.json();
-      const types = [...new Set(allData.map((e) => e.eventInfo.eventType))];
-      setAllEventTypes(types);
-    } catch (err) {
-      console.error("Failed to fetch all event types", err);
-    }
-  };
+      return [...new Set(res.data.map((e) => e.eventInfo.eventType))];
+    },
+  });
 
-  useEffect(() => {
-    fetchEvents();
-  }, [search, type]);
+  if (typPending) {
+    return (
+      <div className="fixed inset-0 z-50 flex items-center justify-center bg-white bg-opacity-50">
+        <span className="loading loading-bars loading-xl text-green-600"></span>
+      </div>
+    );
+  }
 
   return (
     <div>

@@ -11,6 +11,15 @@ import RestrictedPages from "../components/RestrictedPages";
 import EventDetails from "../pages/Events/EventDetails";
 import UpdateEventForm from "../pages/Events/UpdateEventForm";
 import ErrorPage from "../components/ErrorPage";
+import { lazy, Suspense } from "react";
+
+const UpcomingEvents = lazy(() => import("../pages/Events/Upcoming"));
+
+const PageLoader = () => (
+  <div className="flex items-center justify-center min-h-screen">
+    <span className="loading loading-bars loading-lg text-green-600"></span>
+  </div>
+);
 
 export const router = createBrowserRouter([
   {
@@ -56,7 +65,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "/upcoming-event",
-        element: <UpcomingEvent />,
+        element: (
+          <Suspense fallback={<PageLoader />}>
+            <UpcomingEvents />
+          </Suspense>
+        ),
         loader: () => fetch("https://save-tree-org-server.vercel.app/events"),
       },
       {
