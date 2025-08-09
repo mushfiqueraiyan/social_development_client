@@ -25,7 +25,7 @@ const Features = () => {
             className="grid gap-8 md:grid-cols-3"
           >
             {/* Feature 1 */}
-            <div className="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 border border-green-100">
+            <div className=" p-8 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 border border-green-100">
               <div className="flex items-center justify-center w-16 h-16 mx-auto mb-6 bg-green-100 rounded-full">
                 <CalendarPlus size={32} className="text-green-700" />
               </div>
@@ -39,7 +39,7 @@ const Features = () => {
             </div>
 
             {/* Feature 2 */}
-            <div className="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 border border-green-100">
+            <div className=" p-8 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 border border-green-100">
               <div className="flex items-center justify-center w-16 h-16 mx-auto mb-6 bg-green-100 rounded-full">
                 <UsersRound size={32} className="text-green-700" />
               </div>
@@ -53,7 +53,7 @@ const Features = () => {
             </div>
 
             {/* Feature 3 */}
-            <div className="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 border border-green-100">
+            <div className=" p-8 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 border border-green-100">
               <div className="flex items-center justify-center w-16 h-16 mx-auto mb-6 bg-green-100 rounded-full">
                 <BarChart3 size={32} className="text-green-700" />
               </div>

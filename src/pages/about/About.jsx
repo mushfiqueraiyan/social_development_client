@@ -9,6 +9,7 @@ import {
   TreePineIcon,
 } from "lucide-react";
 import useTheme from "../../hook/useTheme";
+import { Link } from "react-router";
 
 export default function About() {
   const theme = useTheme();
@@ -59,17 +60,18 @@ export default function About() {
           <div className="grid md:grid-cols-3 gap-8">
             <div className="text-center group">
               <div
-                className="bg-green-50 p-6 rounded-xl mb-4 group-hover:bg-green-100 transition-colors duration-300"
-                style={{ backgroundColor: "#f0f9ff" }}
+                className={`p-6 rounded-xl mb-4  transition-colors duration-300 ${
+                  theme == "dark" ? "bg-gray-800 text-white" : "bg-green-50 "
+                }`}
               >
                 <Globe
                   className="w-12 h-12 mx-auto mb-4"
                   style={{ color: "#016630" }}
                 />
-                <h3 className="text-xl font-semibold text-gray-800 mb-2">
+                <h3 className="text-xl font-semibold  mb-2">
                   Environmental Impact
                 </h3>
-                <p className="text-gray-600">
+                <p className="">
                   Every tree planted contributes to carbon sequestration, air
                   purification, and biodiversity conservation.
                 </p>
@@ -78,17 +80,18 @@ export default function About() {
 
             <div className="text-center group">
               <div
-                className="bg-green-50 p-6 rounded-xl mb-4 group-hover:bg-green-100 transition-colors duration-300"
-                style={{ backgroundColor: "#f0f9ff" }}
+                className={`p-6 rounded-xl mb-4  transition-colors duration-300 ${
+                  theme == "dark" ? "bg-gray-800 text-white" : "bg-green-50 "
+                }`}
               >
                 <Users
                   className="w-12 h-12 mx-auto mb-4"
                   style={{ color: "#016630" }}
                 />
-                <h3 className="text-xl font-semibold text-gray-800 mb-2">
+                <h3 className="text-xl font-semibold  mb-2">
                   Community Building
                 </h3>
-                <p className="text-gray-600">
+                <p className="">
                   Bringing together like-minded individuals to work towards a
                   common goal of environmental stewardship.
                 </p>
@@ -97,17 +100,16 @@ export default function About() {
 
             <div className="text-center group">
               <div
-                className="bg-green-50 p-6 rounded-xl mb-4 group-hover:bg-green-100 transition-colors duration-300"
-                style={{ backgroundColor: "#f0f9ff" }}
+                className={`p-6 rounded-xl mb-4  transition-colors duration-300 ${
+                  theme == "dark" ? "bg-gray-800" : "bg-green-50 "
+                }`}
               >
                 <Heart
                   className="w-12 h-12 mx-auto mb-4"
                   style={{ color: "#016630" }}
                 />
-                <h3 className="text-xl font-semibold text-gray-800 mb-2">
-                  Legacy Building
-                </h3>
-                <p className="text-gray-600">
+                <h3 className="text-xl font-semibold  mb-2">Legacy Building</h3>
+                <p className="">
                   Creating lasting positive change that will benefit future
                   generations and preserve our planet.
                 </p>
@@ -181,8 +183,12 @@ export default function About() {
               </div>
             </div>
 
-            <div className=" p-8 rounded-2xl shadow-lg">
-              <div className="text-center">
+            <div
+              className={`p-8 rounded-2xl shadow-lg ${
+                theme == "dark" ? "bg-gray-900" : ""
+              }`}
+            >
+              <div className={`text-center`}>
                 <div
                   className="inline-block p-4 rounded-full mb-6"
                   style={{ backgroundColor: "#016630" }}
@@ -190,7 +196,7 @@ export default function About() {
                   <TreePine className="w-12 h-12 text-white" />
                 </div>
                 <h3 className="text-2xl font-bold  mb-4">Join the Movement</h3>
-                <p className="text-gray-600 mb-6">
+                <p className=" mb-6">
                   Be part of a growing community dedicated to environmental
                   conservation and sustainable living.
                 </p>
@@ -244,41 +250,57 @@ export default function About() {
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
-            <div className="bg-gray-50 p-8 rounded-xl">
-              <h3 className="text-xl font-semibold text-gray-800 mb-3">
-                Sustainability
-              </h3>
-              <p className="text-gray-600">
+            <div
+              className={`${
+                theme == "dark"
+                  ? "bg-gray-900 text-white"
+                  : "bg-gray-50 text-gray-800"
+              } p-8 rounded-xl`}
+            >
+              <h3 className="text-xl font-semibold  mb-3">Sustainability</h3>
+              <p className="">
                 We promote long-term environmental solutions that benefit both
                 current and future generations while maintaining ecological
                 balance.
               </p>
             </div>
-            <div className="bg-gray-50 p-8 rounded-xl">
-              <h3 className="text-xl font-semibold text-gray-800 mb-3">
-                Inclusivity
-              </h3>
-              <p className="text-gray-600">
+            <div
+              className={`${
+                theme == "dark"
+                  ? "bg-gray-900 text-white"
+                  : "bg-gray-50 text-gray-800"
+              } p-8 rounded-xl`}
+            >
+              <h3 className="text-xl font-semibold  mb-3">Inclusivity</h3>
+              <p className="">
                 Everyone is welcome to participate regardless of age,
                 background, or experience. Environmental conservation is a
                 collective responsibility.
               </p>
             </div>
-            <div className="bg-gray-50 p-8 rounded-xl">
-              <h3 className="text-xl font-semibold text-gray-800 mb-3">
-                Transparency
-              </h3>
-              <p className="text-gray-600">
+            <div
+              className={`${
+                theme == "dark"
+                  ? "bg-gray-900 text-white"
+                  : "bg-gray-50 text-gray-800"
+              } p-8 rounded-xl`}
+            >
+              <h3 className="text-xl font-semibold  mb-3">Transparency</h3>
+              <p className="">
                 We maintain open communication about our impact, challenges, and
                 progress, ensuring accountability in all our environmental
                 initiatives.
               </p>
             </div>
-            <div className="bg-gray-50 p-8 rounded-xl">
-              <h3 className="text-xl font-semibold text-gray-800 mb-3">
-                Innovation
-              </h3>
-              <p className="text-gray-600">
+            <div
+              className={`${
+                theme == "dark"
+                  ? "bg-gray-900 text-white"
+                  : "bg-gray-50 text-gray-800"
+              } p-8 rounded-xl`}
+            >
+              <h3 className="text-xl font-semibold  mb-3">Innovation</h3>
+              <p className="">
                 We embrace new technologies and creative approaches to make tree
                 plantation events more effective and engaging for communities.
               </p>
@@ -298,12 +320,18 @@ export default function About() {
             to create a more sustainable future through tree plantation events.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-white text-green-700 py-3 px-8 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-300">
+            <Link
+              to={"/upcoming-event"}
+              className="bg-white text-green-700 py-3 px-8 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-300"
+            >
               Browse Events
-            </button>
-            <button className="border-2 border-white text-white py-3 px-8 rounded-lg font-semibold hover:bg-white hover:text-green-700 transition-colors duration-300">
+            </Link>
+            <Link
+              to={"/create-event"}
+              className="border-2 border-white text-white py-3 px-8 rounded-lg font-semibold hover:bg-white hover:text-green-700 transition-colors duration-300"
+            >
               Create Event
-            </button>
+            </Link>
           </div>
         </div>
       </div>

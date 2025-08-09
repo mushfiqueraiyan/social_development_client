@@ -7,6 +7,7 @@ import {
   Phone,
 } from "lucide-react";
 import React from "react";
+import { Link } from "react-router";
 
 const Footer = () => {
   return (
@@ -25,24 +26,24 @@ const Footer = () => {
             <h3 className="text-xl font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-2 text-sm text-gray-300">
               <li>
-                <a href="#" className="hover:text-white">
+                <Link to={"/"} className="hover:text-white">
                   Home
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="hover:text-white">
+                <Link to={"/upcoming-event"} className="hover:text-white">
                   Events
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="hover:text-white">
+                <Link to={"/create-event"} className="hover:text-white">
                   Create Event
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="hover:text-white">
-                  Join Community
-                </a>
+                <Link to={"/about"} className="hover:text-white">
+                  About Community
+                </Link>
               </li>
             </ul>
           </div>
