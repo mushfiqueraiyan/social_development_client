@@ -12,6 +12,7 @@ import EventDetails from "../pages/Events/EventDetails";
 import UpdateEventForm from "../pages/Events/UpdateEventForm";
 import ErrorPage from "../components/ErrorPage";
 import { lazy, Suspense } from "react";
+import About from "../pages/about/About";
 
 const UpcomingEvents = lazy(() => import("../pages/Events/Upcoming"));
 
@@ -71,6 +72,10 @@ export const router = createBrowserRouter([
           </Suspense>
         ),
         loader: () => fetch("https://save-tree-org-server.vercel.app/events"),
+      },
+      {
+        path: "/about",
+        element: <About />,
       },
       {
         path: "/upcoming-event/:id",
