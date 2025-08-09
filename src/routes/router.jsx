@@ -13,6 +13,7 @@ import UpdateEventForm from "../pages/Events/UpdateEventForm";
 import ErrorPage from "../components/ErrorPage";
 import { lazy, Suspense } from "react";
 import About from "../pages/about/About";
+import Contact from "../pages/contact/Contact";
 
 const UpcomingEvents = lazy(() => import("../pages/Events/Upcoming"));
 
@@ -76,6 +77,10 @@ export const router = createBrowserRouter([
       {
         path: "/about",
         element: <About />,
+      },
+      {
+        path: "/contact",
+        element: <Contact />,
       },
       {
         path: "/upcoming-event/:id",

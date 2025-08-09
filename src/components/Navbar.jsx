@@ -95,6 +95,20 @@ const Navbar = () => {
                 About
               </NavLink>
             </li>
+            <li className="text-lg mr-2 hidden md:flex">
+              <NavLink
+                className={({ isPending, isActive }) =>
+                  isPending
+                    ? "pending..."
+                    : isActive
+                    ? "border-b-2 border-green-500 "
+                    : "hover:border-b-2 border-green-500"
+                }
+                to={"/contact"}
+              >
+                Contact
+              </NavLink>
+            </li>
             {user ? (
               <div className="dropdown dropdown-end">
                 <div
@@ -130,6 +144,9 @@ const Navbar = () => {
                   </li>
                   <li className="block md:hidden">
                     <Link to={"/about"}>About</Link>
+                  </li>
+                  <li className="block md:hidden">
+                    <Link to={"/contact"}>Contact</Link>
                   </li>
                 </ul>
                 <button
